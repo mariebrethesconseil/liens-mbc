@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marie Brethes Conseil — Stratégie & Performance Durable</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --vert:       #013927;
+      --vert-mid:   #2a5a45;
+      --sauge:      #6c8c7d;
+      --sauge-pale: #b8ccc4;
+      --fond:       #edf3ec;
+      --blanc:      #ffffff;
+      --corail:     #f26b76;
+      --text:       #1a2e25;
+      --text-light: #4a6358;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--fond);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--vert);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; height: 52px;
+    }
+    .nav-brand {
+      font-family: 'DM Sans', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--sauge-pale); text-decoration: none; white-space: nowrap;
+    }
+    .nav-links { display: flex; overflow-x: auto; scrollbar-width: none; }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--sauge);
+      text-decoration: none; padding: 0 12px; height: 52px;
+      display: flex; align-items: center; white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-links a:hover { color: var(--fond); border-bottom-color: var(--corail); }
+
+    /* FLOATING CTA */
+    .cta-float {
+      position: fixed; bottom: 20px; right: 16px; z-index: 200;
+      background: var(--corail); color: #fff;
+      font-family: 'DM Sans', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 13px 18px; border-radius: 40px;
+      text-decoration: none; box-shadow: 0 4px 20px rgba(242,107,118,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .cta-float:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(242,107,118,0.5); }
+
+    /* SECTIONS */
+    .section { padding: 64px 24px 56px; max-width: 660px; margin: 0 auto; }
+    .sep { border-top: 1px solid rgba(108,140,125,0.18); }
+
+    .eyebrow {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--corail);
+      margin-bottom: 14px; display: block;
+    }
+    .h2 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 600;
+      font-size: clamp(26px, 6vw, 38px); line-height: 1.15;
+      color: var(--vert); margin-bottom: 22px;
+    }
+    .h2 em { font-style: italic; color: var(--sauge); }
+    .p { color: var(--text-light); line-height: 1.78; margin-bottom: 14px; font-size: 14px; }
+    .p strong { color: var(--vert); font-weight: 600; }
+    .p em { font-style: italic; }
+
+    /* HERO — full viewport, tout visible à l'ouverture, adaptatif */
+    .hero {
+      background: var(--vert);
+      min-height: 100vh;
+      min-height: 100dvh; /* fallback mobile récent */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(24px, 5vh, 56px) 20px;
+      box-sizing: border-box;
+    }
+    .hero-inner {
+      max-width: 660px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+    .hero-logo {
+      width: clamp(240px, 42vh, 380px);
+      height: auto;
+      max-width: 90%;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto clamp(20px, 4vh, 36px) auto;
+    }
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 600;
+      font-size: clamp(24px, 5.5vw, 40px);
+      line-height: 1.12;
+      color: var(--fond);
+      margin-bottom: clamp(14px, 2vh, 20px);
+    }
+    .hero-h1 strong { color: var(--corail); font-style: italic; }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(13px, 1.9vh, 16px);
+      color: var(--sauge-pale);
+      line-height: 1.6;
+    }
+    /* Écrans très bas (paysage mobile, portables compacts) */
+    @media (max-height: 620px) {
+      .hero-logo { width: clamp(160px, 32vh, 240px); margin-bottom: 14px; }
+      .hero-h1 { font-size: clamp(20px, 4.5vw, 30px); line-height: 1.1; margin-bottom: 10px; }
+      .hero-sub { font-size: 12.5px; line-height: 1.5; }
+    }
+
+    /* ACCROCHE CARD */
+    .accroche-card {
+      background: var(--blanc);
+      border-radius: 10px;
+      padding: 24px 22px;
+      margin-bottom: 28px;
+      border-left: 4px solid var(--corail);
+      box-shadow: 0 2px 12px rgba(1,57,39,0.07);
+    }
+    .accroche-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 17px;
+      color: var(--text);
+      line-height: 1.55;
+      display: block;
+      padding: 3px 0;
+    }
+    .accroche-line strong { color: var(--corail); font-style: normal; font-weight: 700; }
+
+    /* CONVICTION */
+    .conviction {
+      background: var(--vert); border-radius: 8px;
+      padding: 26px 22px; margin-top: 28px; text-align: center;
+    }
+    .conviction p {
+      font-family: 'Cormorant Garamond', serif; font-weight: 600; font-style: italic;
+      font-size: 18px; line-height: 1.55; color: var(--fond);
+    }
+    .conviction p strong { color: var(--corail); }
+
+    /* RETIRER */
+    .retirer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+    .retirer-item {
+      background: var(--blanc); border-radius: 10px; padding: 20px 16px;
+      border-top: 3px solid var(--sauge-pale);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .retirer-icon { color: var(--corail); }
+    .retirer-title { font-weight: 600; font-size: 13px; color: var(--vert); }
+    .retirer-text { font-size: 12px; color: var(--text-light); line-height: 1.6; }
+
+    /* PHASES */
+    .methode-sub {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: inherit; color: var(--vert); font-weight: 600;
+    }
+
+    .phases { display: flex; align-items: center; gap: 6px; margin-bottom: 26px; flex-wrap: wrap; }
+    .phase {
+      flex: 1; min-width: 78px;
+      background: var(--blanc); border-radius: 6px;
+      padding: 12px 8px; text-align: center;
+      border-top: 3px solid var(--sauge);
+    }
+    .phase-title { font-weight: 700; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--vert); margin-bottom: 2px; }
+    .phase-sub { font-size: 9px; color: var(--sauge); }
+    .phase-arrow { color: var(--sauge-pale); font-size: 14px; flex-shrink: 0; }
+
+    /* PARCOURS */
+    .parcours-steps { display: flex; flex-direction: column; }
+    .parcours-step { display: flex; gap: 14px; align-items: stretch; }
+    .step-left { display: flex; flex-direction: column; align-items: center; width: 38px; flex-shrink: 0; }
+    .step-num {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--vert); color: var(--fond);
+      font-weight: 700; font-size: 13px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .step-line {
+      width: 1px; flex: 1; min-height: 14px;
+      background: linear-gradient(to bottom, var(--sauge), var(--sauge-pale));
+      opacity: 0.3; margin: 3px auto;
+    }
+    .parcours-step:last-child .step-line { display: none; }
+    .step-card {
+      flex: 1; background: var(--blanc); border-radius: 8px;
+      padding: 13px 15px; margin-bottom: 8px;
+      border-left: 3px solid var(--sauge-pale);
+    }
+    .step-name { font-weight: 700; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--vert); margin-bottom: 6px; }
+    .step-tags { display: flex; gap: 7px; flex-wrap: wrap; }
+    .tag { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 20px; background: var(--fond); color: var(--vert-mid); }
+    .tag.price { background: var(--vert); color: var(--fond); }
+    .parcours-note {
+      font-size: 11px; font-style: italic; color: var(--sauge);
+      text-align: center; line-height: 1.65; margin-top: 14px;
+    }
+
+    /* OFFRES ACCORDÉON */
+    .offres-grid { display: flex; flex-direction: column; gap: 10px; }
+    .offre { background: var(--blanc); border-radius: 10px; overflow: hidden; border: 1px solid rgba(108,140,125,0.2); transition: box-shadow 0.2s; }
+    .offre:hover { box-shadow: 0 2px 12px rgba(1,57,39,0.08); }
+    .offre.cap { border: 2px solid var(--corail); }
+
+    .offre-header {
+      padding: 18px 18px; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      transition: background 0.25s;
+    }
+    .offre-header-left { flex: 1; }
+    .offre-num { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; color: var(--corail); text-transform: uppercase; margin-bottom: 3px; }
+    .offre-title { font-weight: 700; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--vert); margin-bottom: 2px; transition: color 0.25s; }
+    .offre-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--sauge); line-height: 1.35; transition: color 0.25s; }
+    .offre-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .offre-price {
+      font-size: 11px; font-weight: 700; color: var(--vert);
+      border: 1px solid var(--sauge-pale); padding: 4px 10px; border-radius: 3px;
+      white-space: nowrap; transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+    .offre-chevron { color: var(--sauge); transition: transform 0.3s, color 0.25s; flex-shrink: 0; }
+
+    /* OPEN STATE */
+    .offre-header.open { background: var(--vert); }
+    .offre-header.open .offre-title { color: var(--fond); }
+    .offre-header.open .offre-tagline { color: var(--sauge-pale); }
+    .offre-header.open .offre-price { background: rgba(255,255,255,0.1); color: var(--fond); border-color: rgba(255,255,255,0.2); }
+    .offre-header.open .offre-chevron { transform: rotate(180deg); color: var(--sauge-pale); }
+    .offre-header.open .offre-num { color: var(--corail); }
+
+    .offre-body { display: none; padding: 16px 18px 20px; border-top: 1px solid rgba(108,140,125,0.12); }
+    .offre-body.open { display: block; }
+    .offre-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+    .offre-list li { display: flex; gap: 9px; font-size: 13px; color: var(--text-light); line-height: 1.55; }
+    .offre-list li::before { content: '→'; color: var(--corail); font-weight: 700; flex-shrink: 0; }
+    .offre-pourqui { font-size: 12px; color: var(--sauge); line-height: 1.55; padding-top: 11px; border-top: 1px solid rgba(108,140,125,0.12); }
+    .offre-pourqui strong { color: var(--vert-mid); }
+
+    /* PARLONS */
+    .parlons-wrap { background: var(--vert); }
+    .parlons-inner { max-width: 660px; margin: 0 auto; padding: 64px 24px 56px; }
+    .parlons-wrap .eyebrow { color: var(--sauge-pale); }
+    .parlons-wrap .h2 { color: var(--fond); }
+    .situations { display: flex; flex-direction: column; gap: 10px; margin: 22px 0; }
+    .situation {
+      background: rgba(255,255,255,0.07); border-radius: 8px;
+      padding: 13px 16px; font-size: 13px; color: var(--sauge-pale);
+      border-left: 3px solid var(--corail);
+    }
+    .rdv-box {
+      background: var(--fond); border-radius: 10px;
+      padding: 22px 18px; margin-top: 26px;
+    }
+    .rdv-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 600;
+      font-size: 21px; color: var(--vert); margin-bottom: 12px;
+    }
+    .rdv-sub { font-size: 13px; color: var(--text-light); margin-bottom: 14px; }
+    .rdv-list { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 22px; }
+    .rdv-list li { display: flex; gap: 9px; font-size: 13px; color: var(--text-light); line-height: 1.55; }
+    .rdv-list li::before { content: '✓'; color: var(--corail); font-weight: 700; flex-shrink: 0; }
+    .rdv-cta {
+      display: block; background: var(--vert); color: var(--fond);
+      font-weight: 700; font-size: 12px; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 15px 24px; border-radius: 6px;
+      text-decoration: none; text-align: center; transition: background 0.2s;
+    }
+    .rdv-cta:hover { background: var(--vert-mid); }
+    .tagline-fin {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 20px; color: var(--sauge-pale); text-align: center;
+      margin-top: 36px; line-height: 1.45;
+    }
+
+    /* PARCOURS DE MARIE (accordéon bas de plaquette) */
+    .marie-section { max-width: 660px; margin: 0 auto; padding: 40px 24px 20px; }
+    .marie-toggle {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      width: 100%;
+      background: var(--vert); color: var(--fond);
+      border: none; cursor: pointer;
+      padding: 18px 22px; border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: background 0.25s, transform 0.15s;
+      box-shadow: 0 2px 12px rgba(1,57,39,0.15);
+    }
+    .marie-toggle:hover { background: var(--vert-mid); transform: translateY(-1px); }
+    .marie-toggle-left { display: flex; align-items: center; gap: 12px; text-align: left; }
+    .marie-toggle-icon {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--corail); color: var(--fond);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 15px;
+      flex-shrink: 0;
+    }
+    .marie-toggle-labels { display: flex; flex-direction: column; gap: 2px; }
+    .marie-toggle-title { color: var(--fond); }
+    .marie-toggle-sub {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 12px; font-weight: 400; letter-spacing: 0.02em;
+      text-transform: none; color: var(--sauge-pale);
+    }
+    .marie-chevron { color: var(--sauge-pale); transition: transform 0.3s; flex-shrink: 0; }
+    .marie-toggle.open .marie-chevron { transform: rotate(180deg); }
+
+    .marie-panel {
+      display: none;
+      background: var(--blanc); border-radius: 10px;
+      padding: 28px 22px; margin-top: 12px;
+      border-top: 3px solid var(--corail);
+      animation: marieFadeIn 0.4s ease;
+    }
+    .marie-panel.open { display: block; }
+    @keyframes marieFadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+    .marie-header { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid rgba(108,140,125,0.15); }
+    .marie-avatar {
+      width: 82px; height: 82px; border-radius: 50%; overflow: hidden;
+      flex-shrink: 0; border: 2px solid var(--sauge-pale);
+    }
+    .marie-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .marie-intro-text { display: flex; flex-direction: column; gap: 4px; }
+    .marie-role {
+      font-weight: 700; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--corail);
+    }
+    .marie-accroche {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 15px; color: var(--vert); line-height: 1.45;
+    }
+    .marie-accroche + .marie-accroche { color: var(--text-light); font-size: 13px; }
+
+    .marie-parcours { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
+    .marie-parcours-item { display: flex; gap: 12px; align-items: flex-start; }
+    .marie-parcours-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sauge); margin-top: 7px; flex-shrink: 0; }
+    .marie-parcours-item.active .marie-parcours-dot { background: var(--corail); box-shadow: 0 0 0 3px rgba(242,107,118,0.2); }
+    .marie-parcours-text { font-size: 13px; font-weight: 600; color: var(--vert); line-height: 1.4; }
+    .marie-parcours-sub { display: block; font-size: 11.5px; font-weight: 400; color: var(--sauge); font-style: italic; margin-top: 1px; }
+
+    .marie-formation {
+      background: var(--fond); border-radius: 8px; padding: 14px 16px; margin-bottom: 22px;
+    }
+    .marie-formation-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--sauge); margin-bottom: 8px;
+    }
+    .marie-formation-item { font-size: 12.5px; color: var(--vert-mid); line-height: 1.55; }
+
+    .marie-vision { display: flex; flex-direction: column; gap: 16px; margin-bottom: 22px; }
+    .marie-vision-block { padding-left: 14px; border-left: 2px solid var(--sauge-pale); }
+    .marie-vision-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--corail); margin-bottom: 6px;
+    }
+    .marie-vision-text { font-size: 13px; color: var(--text-light); line-height: 1.68; }
+    .marie-vision-text strong { color: var(--vert); font-weight: 600; }
+
+    .marie-citation {
+      background: var(--vert); border-radius: 8px; padding: 18px 20px;
+      text-align: center;
+    }
+    .marie-citation-text {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 15px; color: var(--fond); line-height: 1.55; margin-bottom: 6px;
+    }
+    .marie-citation-source {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--sauge-pale);
+    }
+
+    /* CONTACT */
+    .contact-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+    .contact-item {
+      display: flex; align-items: center; gap: 13px;
+      padding: 13px 15px; background: var(--blanc); border-radius: 8px;
+      text-decoration: none;
+    }
+    .contact-icon { color: var(--sauge); flex-shrink: 0; }
+    .contact-label { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sauge); opacity: 0.7; margin-bottom: 2px; }
+    .contact-value { font-size: 13px; font-weight: 600; color: var(--vert); }
+    .legal {
+      background: var(--blanc); border-radius: 8px; padding: 14px;
+      text-align: center; font-size: 10px; color: var(--sauge); line-height: 1.8; opacity: 0.75;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 480px) {
+      .retirer-grid { grid-template-columns: 1fr; }
+      .phases { flex-wrap: wrap; }
+      .nav-links a { padding: 0 9px; }
+      .cta-float { font-size: 10px; padding: 11px 14px; bottom: 14px; right: 12px; }
+      .offre-price { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <span class="nav-brand">MBC</span>
+    <div class="nav-links">
+      <a href="#cabinet">Cabinet</a>
+      <a href="#retirer">Bénéfices</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#offres">Offres</a>
+      <a href="#parlons">Parlons-en</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <a href="https://calendar.app.google/aZwqmFeAAdprGaAh7" target="_blank" class="cta-float" aria-label="Réserver un diagnostic offert">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    Diagnostic offert
+  </a>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <img src="https://raw.githubusercontent.com/mariebrethesconseil/liens-mbc/main/LOGO%20SOMBRE.png" alt="Marie Brethes Conseil" class="hero-logo" />
+      <h1 class="hero-h1">Vous avez créé votre entreprise<br>pour la diriger.<br><strong>Pas pour la porter.</strong></h1>
+      <p class="hero-sub">« La plupart des dirigeants ne manquent ni de talent, ni d'ambition.<br>Ils manquent de structure, de clarté et de temps pour piloter. »</p>
+    </div>
+  </div>
+
+  <!-- LE CABINET -->
+  <div class="sep"><div class="section" id="cabinet">
+    <span class="eyebrow">Le Cabinet</span>
+    <h2 class="h2">Vous êtes dirigeant.<br><em>Mais votre entreprise tourne encore autour de vous.</em></h2>
+
+    <div class="accroche-card">
+      <span class="accroche-line">Vous êtes dirigeant.</span>
+      <span class="accroche-line">Mais vos journées s'enchaînent en <strong>mode urgence.</strong></span>
+      <span class="accroche-line">Le téléphone sonne sans arrêt. <strong>Chaque décision remonte à vous.</strong></span>
+      <span class="accroche-line">Vos équipes attendent vos consignes.</span>
+      <span class="accroche-line">Et vous finissez vos semaines épuisé — sans avoir eu le temps de prendre du recul sur votre entreprise, <strong>juste de la faire tourner.</strong></span>
+    </div>
+
+    <p class="p">J'ai passé 14 ans dans les entreprises à observer ce qui les fait avancer — ou tourner en rond. Un constat s'est imposé : les dirigeants de TPE portent tout, décident de tout, et finissent épuisés par ce qu'ils devraient simplement diriger.</p>
+    <p class="p">J'ai créé <strong>MARIE BRETHES CONSEIL</strong> pour leur apporter un accompagnement terrain, structuré et pragmatique — qui les remet à leur juste place.</p>
+    <p class="p">Un dysfonctionnement organisationnel a toujours un coût : temps perdu, décisions retardées, opportunités manquées. Mon accompagnement transforme ces pertes invisibles en leviers de performance durable.</p>
+    <p class="p">Ma spécialité : votre entreprise doit pouvoir compter sur vous, sans dépendre de vous.</p>
+    <p class="p"><em>Pas de conseil théorique. Pas de méthode plaquée.<br>Une approche terrain, co-construite avec vous, ajustée à votre réalité.</em></p>
+
+    <div class="conviction">
+      <p>« Diriger, ce n'est pas tout faire.<br>C'est créer les conditions pour que ça fonctionne,<br><strong>même quand vous n'êtes pas là.</strong> »</p>
+    </div>
+  </div></div>
+
+  <!-- CE QUE VOUS ALLEZ EN RETIRER -->
+  <div class="sep"><div class="section" id="retirer">
+    <span class="eyebrow">Ce que vous allez en retirer</span>
+    <h2 class="h2">Des résultats <em>concrets</em>,<br>pas des livrables</h2>
+    <div class="retirer-grid">
+      <div class="retirer-item">
+        <div class="retirer-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/></svg>
+        </div>
+        <div class="retirer-title">Une vision claire</div>
+        <div class="retirer-text">Vous savez où votre organisation freine vraiment — fini d'avancer à l'aveugle.</div>
+      </div>
+      <div class="retirer-item">
+        <div class="retirer-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+        </div>
+        <div class="retirer-title">Un cap à tenir</div>
+        <div class="retirer-text">Vous savez par où commencer, vous arrêtez de tout porter seul.</div>
+      </div>
+      <div class="retirer-item">
+        <div class="retirer-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="retirer-title">Des équipes alignées</div>
+        <div class="retirer-text">Vos équipes savent quoi faire, sans vous — vous retrouvez du temps stratégique.</div>
+      </div>
+      <div class="retirer-item">
+        <div class="retirer-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <div class="retirer-title">Un pilotage mesurable</div>
+        <div class="retirer-text">Vous décidez avec confiance — vous reprenez la main sur votre entreprise.</div>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- VOTRE PARCOURS -->
+  <div class="sep"><div class="section" id="parcours">
+    <span class="eyebrow">Votre Parcours</span>
+    <h2 class="h2">La méthode MBC : <span class="methode-sub">Reprendre les commandes</span></h2>
+    <div class="phases">
+      <div class="phase"><div class="phase-title">Comprendre</div><div class="phase-sub">Identifier ce qui freine</div></div>
+      <span class="phase-arrow">→</span>
+      <div class="phase"><div class="phase-title">Transformer</div><div class="phase-sub">Déployer le changement</div></div>
+      <span class="phase-arrow">→</span>
+      <div class="phase"><div class="phase-title">Ancrer</div><div class="phase-sub">Piloter dans la durée</div></div>
+    </div>
+    <div class="parcours-steps">
+      <div class="parcours-step">
+        <div class="step-left"><div class="step-num">01</div><div class="step-line"></div></div>
+        <div class="step-card">
+          <div class="step-name">Diagnostic Express</div>
+          <div class="step-tags"><span class="tag">3 semaines</span><span class="tag price">À partir de 1 500 € HT</span></div>
+        </div>
+      </div>
+      <div class="parcours-step">
+        <div class="step-left"><div class="step-num">02</div><div class="step-line"></div></div>
+        <div class="step-card">
+          <div class="step-name">Audit Organisationnel</div>
+          <div class="step-tags"><span class="tag">4 à 8 semaines</span><span class="tag price">À partir de 3 500 € HT</span></div>
+        </div>
+      </div>
+      <div class="parcours-step">
+        <div class="step-left"><div class="step-num">03</div><div class="step-line"></div></div>
+        <div class="step-card">
+          <div class="step-name">Accompagnement Structuration</div>
+          <div class="step-tags"><span class="tag">À partir de 3 mois</span><span class="tag price">À partir de 4 500 € HT</span></div>
+        </div>
+      </div>
+      <div class="parcours-step">
+        <div class="step-left"><div class="step-num" style="background:var(--corail);">04</div><div class="step-line"></div></div>
+        <div class="step-card" style="border-left-color:var(--corail);">
+          <div class="step-name" style="color:var(--corail);">Cap MBC</div>
+          <div class="step-tags"><span class="tag">Abonnement mensuel</span><span class="tag price" style="background:var(--corail);">750 € HT / mois</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="parcours-note">Chaque offre est autonome. Combinées, elles forment un parcours complet de transformation organisationnelle.<br>Une phase de cadrage MBC (350 € HT, déduite si validation sous 30 jours) peut être proposée en porte d'entrée des offres 02 et 03.</p>
+  </div></div>
+
+  <!-- MES OFFRES -->
+  <div class="sep"><div class="section" id="offres">
+    <span class="eyebrow">Mes Offres</span>
+    <h2 class="h2">Un accompagnement <em>sur mesure</em></h2>
+    <div class="offres-grid">
+
+      <div class="offre">
+        <div class="offre-header" onclick="toggleOffre(this)">
+          <div class="offre-header-left">
+            <div class="offre-num">01</div>
+            <div class="offre-title">Diagnostic Express</div>
+            <div class="offre-tagline">Comprendre pourquoi tout repose encore sur vous.</div>
+          </div>
+          <div class="offre-right">
+            <div class="offre-price">À partir de 1 500 € HT</div>
+            <svg class="offre-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="offre-body">
+          <ul class="offre-list">
+            <li>Le Baromètre d'autonomie MBC : où et pourquoi votre entreprise dépend encore de vous</li>
+            <li>Cartographie précise des blocages organisationnels</li>
+            <li>Plan d'action priorisé sur 90 jours</li>
+          </ul>
+          <div class="offre-pourqui"><strong>Pour qui :</strong> Dirigeants qui sentent que leur organisation freine, sans savoir où agir en priorité.</div>
+        </div>
+      </div>
+
+      <div class="offre">
+        <div class="offre-header" onclick="toggleOffre(this)">
+          <div class="offre-header-left">
+            <div class="offre-num">02</div>
+            <div class="offre-title">Audit Organisationnel</div>
+            <div class="offre-tagline">Identifier précisément où votre entreprise perd du temps et de l'argent.</div>
+          </div>
+          <div class="offre-right">
+            <div class="offre-price">À partir de 3 500 € HT</div>
+            <svg class="offre-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="offre-body">
+          <ul class="offre-list">
+            <li>Analyse approfondie des zones de perte sur 6 à 10 pôles organisationnels</li>
+            <li>Indicateurs de mesure structurés par pôle</li>
+            <li>Plan de transformation priorisé, avec impact attendu et effort estimé</li>
+          </ul>
+          <div class="offre-pourqui"><strong>Pour qui :</strong> Dirigeants qui veulent une vision exhaustive avant de structurer ou de grandir.</div>
+        </div>
+      </div>
+
+      <div class="offre">
+        <div class="offre-header" onclick="toggleOffre(this)">
+          <div class="offre-header-left">
+            <div class="offre-num">03</div>
+            <div class="offre-title">Accompagnement Structuration</div>
+            <div class="offre-tagline">Construire une organisation qui fonctionne sans vous au quotidien.</div>
+          </div>
+          <div class="offre-right">
+            <div class="offre-price">À partir de 4 500 € HT</div>
+            <svg class="offre-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="offre-body">
+          <ul class="offre-list">
+            <li>Déploiement opérationnel co-construit — 2 séances de 3h/mois sur site</li>
+            <li>Structuration des rôles, des processus et des outils internes</li>
+            <li>Activation du réseau partenaires si besoin (comptable, RH, digital, juridique…)</li>
+            <li>Mesure d'impact en fin d'intervention</li>
+          </ul>
+          <div class="offre-pourqui"><strong>Pour qui :</strong> Dirigeants disposant d'un plan d'action structuré, prêts à le mettre en œuvre.</div>
+        </div>
+      </div>
+
+      <div class="offre cap">
+        <div class="offre-header" onclick="toggleOffre(this)">
+          <div class="offre-header-left">
+            <div class="offre-num">04</div>
+            <div class="offre-title">Cap MBC</div>
+            <div class="offre-tagline">Rester à votre juste place de dirigeant, dans la durée.</div>
+          </div>
+          <div class="offre-right">
+            <div class="offre-price">750 € HT / mois</div>
+            <svg class="offre-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="offre-body">
+          <ul class="offre-list">
+            <li>Regard extérieur structurant chaque mois — 1 demi-journée terrain + 1 visio d'1h</li>
+            <li>Réactivité sous 72h sur les sujets urgents</li>
+            <li>Activation du réseau partenaires selon les besoins identifiés</li>
+            <li>Rapport trimestriel d'impact</li>
+          </ul>
+          <div class="offre-pourqui"><strong>Conditions d'accès :</strong> Accompagnement Structuration MBC réalisé, ou Cadrage Maturité (750 € HT).</div>
+        </div>
+      </div>
+
+    </div>
+  </div></div>
+
+  <!-- PARLONS-EN -->
+  <div class="parlons-wrap" id="parlons">
+    <div class="parlons-inner">
+      <span class="eyebrow">Parlons-en</span>
+      <h2 class="h2">Vous vous reconnaissez ?</h2>
+      <div class="situations">
+        <div class="situation">Vous êtes le seul à avoir la vision d'ensemble, et ça vous épuise.</div>
+        <div class="situation">Vos équipes sont compétentes, mais l'organisation ne suit pas.</div>
+        <div class="situation">Vous savez qu'il faut structurer, mais vous n'avez pas le temps de le faire.</div>
+      </div>
+      <div class="rdv-box">
+        <div class="rdv-title">30 minutes pour reprendre les commandes.</div>
+        <p class="rdv-sub">Un échange offert, sans engagement. En 30 minutes, vous repartirez avec :</p>
+        <ul class="rdv-list">
+          <li>Le principal frein qui limite votre entreprise aujourd'hui</li>
+          <li>Une piste concrète pour libérer du temps dès la semaine prochaine</li>
+          <li>Vos 3 priorités à traiter en premier</li>
+        </ul>
+        <a href="https://calendar.app.google/aZwqmFeAAdprGaAh7" target="_blank" class="rdv-cta">Réserver mon diagnostic offert</a>
+      </div>
+      <p class="tagline-fin">« Ensemble, remettons votre entreprise à sa juste place.<br>Et vous, à la vôtre. »</p>
+    </div>
+  </div>
+
+  <!-- LE PARCOURS DE MARIE (accordéon dépliable) -->
+  <div class="marie-section">
+    <button class="marie-toggle" onclick="toggleMarie()" aria-expanded="false" aria-controls="marie-panel">
+      <div class="marie-toggle-left">
+        <div class="marie-toggle-icon">M</div>
+        <div class="marie-toggle-labels">
+          <div class="marie-toggle-title">Le Parcours de Marie</div>
+          <div class="marie-toggle-sub">14 ans dans les entreprises · Fondatrice MBC</div>
+        </div>
+      </div>
+      <svg class="marie-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+
+    <div class="marie-panel" id="marie-panel">
+
+      <div class="marie-header">
+        <div class="marie-avatar">
+          <img src="./marie-avatar.jpg" alt="Marie Brethes" loading="lazy" />
+        </div>
+        <div class="marie-intro-text">
+          <div class="marie-role">Fondatrice MBC</div>
+          <span class="marie-accroche">14 ans au cœur des entreprises. Une seule conviction : la structure libère.</span>
+          <span class="marie-accroche">Mon fonctionnement : observer, structurer, optimiser, transmettre.</span>
+        </div>
+      </div>
+
+      <div class="marie-parcours">
+        <div class="marie-parcours-item">
+          <div class="marie-parcours-dot"></div>
+          <div>
+            <div class="marie-parcours-text">Transport &amp; logistique</div>
+            <span class="marie-parcours-sub">Formation initiale — alternance</span>
+          </div>
+        </div>
+        <div class="marie-parcours-item">
+          <div class="marie-parcours-dot"></div>
+          <div>
+            <div class="marie-parcours-text">Développement commercial &amp; formation</div>
+            <span class="marie-parcours-sub">Conseil B2B, vente, accompagnement</span>
+          </div>
+        </div>
+        <div class="marie-parcours-item">
+          <div class="marie-parcours-dot"></div>
+          <div>
+            <div class="marie-parcours-text">Création et développement d'agence</div>
+            <span class="marie-parcours-sub">0 → 1,8 M€ de CA en 3 ans</span>
+          </div>
+        </div>
+        <div class="marie-parcours-item">
+          <div class="marie-parcours-dot"></div>
+          <div>
+            <div class="marie-parcours-text">Direction d'établissement</div>
+            <span class="marie-parcours-sub">Gestion opérationnelle, CHR</span>
+          </div>
+        </div>
+        <div class="marie-parcours-item active">
+          <div class="marie-parcours-dot"></div>
+          <div>
+            <div class="marie-parcours-text">Marie Brethes Conseil</div>
+            <span class="marie-parcours-sub">Cabinet de conseil en organisation et performance opérationnelle</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="marie-formation">
+        <div class="marie-formation-label">Formation</div>
+        <div class="marie-formation-item">Licence Management Logistique &amp; Transport</div>
+        <div class="marie-formation-item">Master Ingénierie Commerciale &amp; Management de Projets</div>
+      </div>
+
+      <div class="marie-vision">
+        <div class="marie-vision-block">
+          <div class="marie-vision-label">Origine</div>
+          <p class="marie-vision-text">Cela fait 14 ans que je travaille au cœur des entreprises — transport, formation, recrutement, direction d'établissement. À chaque poste, le même réflexe : observer, identifier ce qui coince, structurer ce qui libère. Jusqu'au jour où j'ai réalisé que ce que je faisais naturellement pour les autres, je pouvais en faire un métier. C'est comme ça qu'est né <strong>MARIE BRETHES CONSEIL</strong>.</p>
+        </div>
+        <div class="marie-vision-block">
+          <div class="marie-vision-label">Intention</div>
+          <p class="marie-vision-text">Ce que je veux pour mes clients, c'est qu'ils retrouvent la posture de dirigeant. Qu'ils puissent prendre le recul nécessaire, penser leur organisation avec clarté, et porter leurs équipes vers les objectifs — sans être perpétuellement absorbés par l'opérationnel.</p>
+        </div>
+        <div class="marie-vision-block">
+          <div class="marie-vision-label">Engagement</div>
+          <p class="marie-vision-text">Ce que j'apporte : mon œil terrain, ma capacité à structurer dans le chaos, et une approche directe qui va à l'essentiel. Pas de rapport de 80 pages. Des diagnostics clairs, des plans d'action concrets, et un accompagnement qui reste ancré dans votre réalité — pas dans la théorie.</p>
+        </div>
+      </div>
+
+      <div class="marie-citation">
+        <p class="marie-citation-text">« Terrain. Structure. Résultats. C'est comme ça que je travaille — et c'est pour ça que j'ai créé MBC. »</p>
+        <p class="marie-citation-source">— Marie Brethes</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="sep"><div class="section" id="contact">
+    <span class="eyebrow">Contact</span>
+    <h2 class="h2">Marie Brethes Conseil</h2>
+    <p class="p" style="margin-bottom:22px;">Landes &amp; Sud-Ouest · 40280 Saint-Pierre-du-Mont</p>
+    <div class="contact-grid">
+      <a href="tel:+33627964505" class="contact-item">
+        <div class="contact-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div><div class="contact-label">Téléphone</div><div class="contact-value">06 27 96 45 05</div></div>
+      </a>
+      <a href="mailto:conseil@mariebrethesconseil.fr" class="contact-item">
+        <div class="contact-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><div class="contact-label">Email</div><div class="contact-value">conseil@mariebrethesconseil.fr</div></div>
+      </a>
+      <a href="https://www.linkedin.com/in/mariebrethes/" target="_blank" class="contact-item">
+        <div class="contact-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+        <div><div class="contact-label">LinkedIn</div><div class="contact-value">Marie Brethes</div></div>
+      </a>
+    </div>
+    <div class="legal">
+      <strong>MARIE BRETHES CONSEIL</strong><br>
+      SAS à associé unique au capital de 1 000 €<br>
+      SIREN 105 147 771 — RCS Mont-de-Marsan 2026B00331 — EUID FR4002.105147771<br>
+      TVA non applicable, art. 293 B du CGI
+    </div>
+  </div></div>
+
+  <script>
+    function toggleOffre(header) {
+      const body = header.nextElementSibling;
+      const isOpen = body.classList.contains('open');
+      document.querySelectorAll('.offre-body').forEach(b => b.classList.remove('open'));
+      document.querySelectorAll('.offre-header').forEach(h => h.classList.remove('open'));
+      if (!isOpen) {
+        body.classList.add('open');
+        header.classList.add('open');
+      }
+    }
+    function toggleMarie() {
+      const btn = document.querySelector('.marie-toggle');
+      const panel = document.getElementById('marie-panel');
+      const isOpen = panel.classList.contains('open');
+      if (isOpen) {
+        panel.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        panel.classList.add('open');
+        btn.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+  </script>
+</body>
+</html>

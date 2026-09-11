@@ -87,7 +87,7 @@
     /* HERO */
     .hero { background: var(--vert); }
     .hero-inner { max-width: 660px; margin: 0 auto; padding: 56px 24px 48px; }
-    .hero-logo { width: 280px; height: 280px; object-fit: contain; display: block; margin: 0 auto 36px; }
+    .hero-logo { width: 88px; height: 88px; object-fit: contain; display: block; margin-bottom: 36px; }
     .hero-h1 {
       font-family: 'Cormorant Garamond', serif; font-weight: 600;
       font-size: clamp(28px, 7vw, 44px); line-height: 1.1;
@@ -261,6 +261,103 @@
       font-family: 'Cormorant Garamond', serif; font-style: italic;
       font-size: 20px; color: var(--sauge-pale); text-align: center;
       margin-top: 36px; line-height: 1.45;
+    }
+
+    /* PARCOURS DE MARIE (accordéon bas de plaquette) */
+    .marie-section { max-width: 660px; margin: 0 auto; padding: 40px 24px 20px; }
+    .marie-toggle {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      width: 100%;
+      background: var(--vert); color: var(--fond);
+      border: none; cursor: pointer;
+      padding: 18px 22px; border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: background 0.25s, transform 0.15s;
+      box-shadow: 0 2px 12px rgba(1,57,39,0.15);
+    }
+    .marie-toggle:hover { background: var(--vert-mid); transform: translateY(-1px); }
+    .marie-toggle-left { display: flex; align-items: center; gap: 12px; text-align: left; }
+    .marie-toggle-icon {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--corail); color: var(--fond);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 15px;
+      flex-shrink: 0;
+    }
+    .marie-toggle-labels { display: flex; flex-direction: column; gap: 2px; }
+    .marie-toggle-title { color: var(--fond); }
+    .marie-toggle-sub {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 12px; font-weight: 400; letter-spacing: 0.02em;
+      text-transform: none; color: var(--sauge-pale);
+    }
+    .marie-chevron { color: var(--sauge-pale); transition: transform 0.3s; flex-shrink: 0; }
+    .marie-toggle.open .marie-chevron { transform: rotate(180deg); }
+
+    .marie-panel {
+      display: none;
+      background: var(--blanc); border-radius: 10px;
+      padding: 28px 22px; margin-top: 12px;
+      border-top: 3px solid var(--corail);
+      animation: marieFadeIn 0.4s ease;
+    }
+    .marie-panel.open { display: block; }
+    @keyframes marieFadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+    .marie-header { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid rgba(108,140,125,0.15); }
+    .marie-avatar {
+      width: 82px; height: 82px; border-radius: 50%; overflow: hidden;
+      flex-shrink: 0; border: 2px solid var(--sauge-pale);
+    }
+    .marie-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .marie-intro-text { display: flex; flex-direction: column; gap: 4px; }
+    .marie-role {
+      font-weight: 700; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--corail);
+    }
+    .marie-accroche {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 15px; color: var(--vert); line-height: 1.45;
+    }
+    .marie-accroche + .marie-accroche { color: var(--text-light); font-size: 13px; }
+
+    .marie-parcours { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
+    .marie-parcours-item { display: flex; gap: 12px; align-items: flex-start; }
+    .marie-parcours-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sauge); margin-top: 7px; flex-shrink: 0; }
+    .marie-parcours-item.active .marie-parcours-dot { background: var(--corail); box-shadow: 0 0 0 3px rgba(242,107,118,0.2); }
+    .marie-parcours-text { font-size: 13px; font-weight: 600; color: var(--vert); line-height: 1.4; }
+    .marie-parcours-sub { display: block; font-size: 11.5px; font-weight: 400; color: var(--sauge); font-style: italic; margin-top: 1px; }
+
+    .marie-formation {
+      background: var(--fond); border-radius: 8px; padding: 14px 16px; margin-bottom: 22px;
+    }
+    .marie-formation-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--sauge); margin-bottom: 8px;
+    }
+    .marie-formation-item { font-size: 12.5px; color: var(--vert-mid); line-height: 1.55; }
+
+    .marie-vision { display: flex; flex-direction: column; gap: 16px; margin-bottom: 22px; }
+    .marie-vision-block { padding-left: 14px; border-left: 2px solid var(--sauge-pale); }
+    .marie-vision-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--corail); margin-bottom: 6px;
+    }
+    .marie-vision-text { font-size: 13px; color: var(--text-light); line-height: 1.68; }
+    .marie-vision-text strong { color: var(--vert); font-weight: 600; }
+
+    .marie-citation {
+      background: var(--vert); border-radius: 8px; padding: 18px 20px;
+      text-align: center;
+    }
+    .marie-citation-text {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 15px; color: var(--fond); line-height: 1.55; margin-bottom: 6px;
+    }
+    .marie-citation-source {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--sauge-pale);
     }
 
     /* CONTACT */
@@ -544,6 +641,99 @@
     </div>
   </div>
 
+  <!-- LE PARCOURS DE MARIE (accordéon dépliable) -->
+  <div class="marie-section">
+    <button class="marie-toggle" onclick="toggleMarie()" aria-expanded="false" aria-controls="marie-panel">
+      <div class="marie-toggle-left">
+        <div class="marie-toggle-icon">M</div>
+        <div class="marie-toggle-labels">
+          <div class="marie-toggle-title">Le Parcours de Marie</div>
+          <div class="marie-toggle-sub">14 ans dans les entreprises · Fondatrice MBC</div>
+        </div>
+      </div>
+      <svg class="marie-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+
+    <div class="marie-panel" id="marie-panel">
+
+      <div class="marie-header">
+        <div class="marie-avatar">
+          <img src="./marie-avatar.jpg" alt="Marie Brethes" loading="lazy" />
+        </div>
+        <div class="marie-intro-text">
+          <div class="marie-role">Fondatrice MBC</div>
+          <span class="marie-accroche">14 ans au cœur des entreprises. Une seule conviction : la structure libère.</span>
+          <span class="marie-accroche">Mon fonctionnement : observer, structurer, optimiser, transmettre.</span>
+        </div>
+      </div>
+
+      <div class="marie-parcours">
+        <div class="marie-parcours-item">
+          <div class="marie-parcours-dot"></div>
+          <div>
+            <div class="marie-parcours-text">Transport &amp; logistique</div>
+            <span class="marie-parcours-sub">Formation initiale — alternance</span>
+          </div>
+        </div>
+        <div class="marie-parcours-item">
+          <div class="marie-parcours-dot"></div>
+          <div>
+            <div class="marie-parcours-text">Développement commercial &amp; formation</div>
+            <span class="marie-parcours-sub">Conseil B2B, vente, accompagnement</span>
+          </div>
+        </div>
+        <div class="marie-parcours-item">
+          <div class="marie-parcours-dot"></div>
+          <div>
+            <div class="marie-parcours-text">Création et développement d'agence</div>
+            <span class="marie-parcours-sub">0 → 1,8 M€ de CA en 3 ans</span>
+          </div>
+        </div>
+        <div class="marie-parcours-item">
+          <div class="marie-parcours-dot"></div>
+          <div>
+            <div class="marie-parcours-text">Direction d'établissement</div>
+            <span class="marie-parcours-sub">Gestion opérationnelle, CHR</span>
+          </div>
+        </div>
+        <div class="marie-parcours-item active">
+          <div class="marie-parcours-dot"></div>
+          <div>
+            <div class="marie-parcours-text">Marie Brethes Conseil</div>
+            <span class="marie-parcours-sub">Cabinet de conseil en organisation et performance opérationnelle</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="marie-formation">
+        <div class="marie-formation-label">Formation</div>
+        <div class="marie-formation-item">Licence Management Logistique &amp; Transport</div>
+        <div class="marie-formation-item">Master Ingénierie Commerciale &amp; Management de Projets</div>
+      </div>
+
+      <div class="marie-vision">
+        <div class="marie-vision-block">
+          <div class="marie-vision-label">Origine</div>
+          <p class="marie-vision-text">Cela fait 14 ans que je travaille au cœur des entreprises — transport, formation, recrutement, direction d'établissement. À chaque poste, le même réflexe : observer, identifier ce qui coince, structurer ce qui libère. Jusqu'au jour où j'ai réalisé que ce que je faisais naturellement pour les autres, je pouvais en faire un métier. C'est comme ça qu'est né <strong>MARIE BRETHES CONSEIL</strong>.</p>
+        </div>
+        <div class="marie-vision-block">
+          <div class="marie-vision-label">Intention</div>
+          <p class="marie-vision-text">Ce que je veux pour mes clients, c'est qu'ils retrouvent la posture de dirigeant. Qu'ils puissent prendre le recul nécessaire, penser leur organisation avec clarté, et porter leurs équipes vers les objectifs — sans être perpétuellement absorbés par l'opérationnel.</p>
+        </div>
+        <div class="marie-vision-block">
+          <div class="marie-vision-label">Engagement</div>
+          <p class="marie-vision-text">Ce que j'apporte : mon œil terrain, ma capacité à structurer dans le chaos, et une approche directe qui va à l'essentiel. Pas de rapport de 80 pages. Des diagnostics clairs, des plans d'action concrets, et un accompagnement qui reste ancré dans votre réalité — pas dans la théorie.</p>
+        </div>
+      </div>
+
+      <div class="marie-citation">
+        <p class="marie-citation-text">« Terrain. Structure. Résultats. C'est comme ça que je travaille — et c'est pour ça que j'ai créé MBC. »</p>
+        <p class="marie-citation-source">— Marie Brethes</p>
+      </div>
+
+    </div>
+  </div>
+
   <!-- CONTACT -->
   <div class="sep"><div class="section" id="contact">
     <span class="eyebrow">Contact</span>
@@ -580,6 +770,20 @@
       if (!isOpen) {
         body.classList.add('open');
         header.classList.add('open');
+      }
+    }
+    function toggleMarie() {
+      const btn = document.querySelector('.marie-toggle');
+      const panel = document.getElementById('marie-panel');
+      const isOpen = panel.classList.contains('open');
+      if (isOpen) {
+        panel.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        panel.classList.add('open');
+        btn.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
       }
     }
   </script>

@@ -1,27 +1,3 @@
-
-/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Plaquette · HTML
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -51,7 +27,7 @@ Plaquette · HTML
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
- 
+
     /* NAV */
     .nav {
       position: sticky; top: 0; z-index: 100;
@@ -75,7 +51,7 @@ Plaquette · HTML
       transition: color 0.2s, border-color 0.2s;
     }
     .nav-links a:hover { color: var(--fond); border-bottom-color: var(--corail); }
- 
+
     /* FLOATING CTA */
     .cta-float {
       position: fixed; bottom: 20px; right: 16px; z-index: 200;
@@ -88,11 +64,11 @@ Plaquette · HTML
       display: flex; align-items: center; gap: 7px;
     }
     .cta-float:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(242,107,118,0.5); }
- 
+
     /* SECTIONS */
     .section { padding: 64px 24px 56px; max-width: 660px; margin: 0 auto; }
     .sep { border-top: 1px solid rgba(108,140,125,0.18); }
- 
+
     .eyebrow {
       font-size: 10px; font-weight: 600; letter-spacing: 0.22em;
       text-transform: uppercase; color: var(--corail);
@@ -107,11 +83,11 @@ Plaquette · HTML
     .p { color: var(--text-light); line-height: 1.78; margin-bottom: 14px; font-size: 14px; }
     .p strong { color: var(--vert); font-weight: 600; }
     .p em { font-style: italic; }
- 
+
     /* HERO */
     .hero { background: var(--vert); }
     .hero-inner { max-width: 660px; margin: 0 auto; padding: 56px 24px 48px; }
-    .hero-logo { width: auto; height: 88px; max-width: 240px; object-fit: contain; display: block; margin-bottom: 36px; }
+    .hero-logo { width: 200px; height: auto; max-width: 100%; object-fit: contain; display: block; margin-bottom: 36px; }
     .hero-h1 {
       font-family: 'Cormorant Garamond', serif; font-weight: 600;
       font-size: clamp(28px, 7vw, 44px); line-height: 1.1;
@@ -122,7 +98,7 @@ Plaquette · HTML
       font-family: 'Cormorant Garamond', serif; font-style: italic;
       font-size: 16px; color: var(--sauge-pale); line-height: 1.7;
     }
- 
+
     /* ACCROCHE CARD */
     .accroche-card {
       background: var(--blanc);
@@ -142,7 +118,7 @@ Plaquette · HTML
       padding: 3px 0;
     }
     .accroche-line strong { color: var(--corail); font-style: normal; font-weight: 700; }
- 
+
     /* CONVICTION */
     .conviction {
       background: var(--vert); border-radius: 8px;
@@ -153,7 +129,7 @@ Plaquette · HTML
       font-size: 18px; line-height: 1.55; color: var(--fond);
     }
     .conviction p strong { color: var(--corail); }
- 
+
     /* RETIRER */
     .retirer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
     .retirer-item {
@@ -164,13 +140,13 @@ Plaquette · HTML
     .retirer-icon { color: var(--corail); }
     .retirer-title { font-weight: 600; font-size: 13px; color: var(--vert); }
     .retirer-text { font-size: 12px; color: var(--text-light); line-height: 1.6; }
- 
+
     /* PHASES */
     .methode-sub {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
       font-size: inherit; color: var(--vert); font-weight: 600;
     }
- 
+
     .phases { display: flex; align-items: center; gap: 6px; margin-bottom: 26px; flex-wrap: wrap; }
     .phase {
       flex: 1; min-width: 78px;
@@ -181,7 +157,7 @@ Plaquette · HTML
     .phase-title { font-weight: 700; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--vert); margin-bottom: 2px; }
     .phase-sub { font-size: 9px; color: var(--sauge); }
     .phase-arrow { color: var(--sauge-pale); font-size: 14px; flex-shrink: 0; }
- 
+
     /* PARCOURS */
     .parcours-steps { display: flex; flex-direction: column; }
     .parcours-step { display: flex; gap: 14px; align-items: stretch; }
@@ -211,13 +187,13 @@ Plaquette · HTML
       font-size: 11px; font-style: italic; color: var(--sauge);
       text-align: center; line-height: 1.65; margin-top: 14px;
     }
- 
+
     /* OFFRES ACCORDÉON */
     .offres-grid { display: flex; flex-direction: column; gap: 10px; }
     .offre { background: var(--blanc); border-radius: 10px; overflow: hidden; border: 1px solid rgba(108,140,125,0.2); transition: box-shadow 0.2s; }
     .offre:hover { box-shadow: 0 2px 12px rgba(1,57,39,0.08); }
     .offre.cap { border: 2px solid var(--corail); }
- 
+
     .offre-header {
       padding: 18px 18px; cursor: pointer;
       display: flex; align-items: center; justify-content: space-between; gap: 12px;
@@ -234,7 +210,7 @@ Plaquette · HTML
       white-space: nowrap; transition: background 0.25s, color 0.25s, border-color 0.25s;
     }
     .offre-chevron { color: var(--sauge); transition: transform 0.3s, color 0.25s; flex-shrink: 0; }
- 
+
     /* OPEN STATE */
     .offre-header.open { background: var(--vert); }
     .offre-header.open .offre-title { color: var(--fond); }
@@ -242,7 +218,7 @@ Plaquette · HTML
     .offre-header.open .offre-price { background: rgba(255,255,255,0.1); color: var(--fond); border-color: rgba(255,255,255,0.2); }
     .offre-header.open .offre-chevron { transform: rotate(180deg); color: var(--sauge-pale); }
     .offre-header.open .offre-num { color: var(--corail); }
- 
+
     .offre-body { display: none; padding: 16px 18px 20px; border-top: 1px solid rgba(108,140,125,0.12); }
     .offre-body.open { display: block; }
     .offre-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
@@ -250,7 +226,7 @@ Plaquette · HTML
     .offre-list li::before { content: '→'; color: var(--corail); font-weight: 700; flex-shrink: 0; }
     .offre-pourqui { font-size: 12px; color: var(--sauge); line-height: 1.55; padding-top: 11px; border-top: 1px solid rgba(108,140,125,0.12); }
     .offre-pourqui strong { color: var(--vert-mid); }
- 
+
     /* PARLONS */
     .parlons-wrap { background: var(--vert); }
     .parlons-inner { max-width: 660px; margin: 0 auto; padding: 64px 24px 56px; }
@@ -286,7 +262,7 @@ Plaquette · HTML
       font-size: 20px; color: var(--sauge-pale); text-align: center;
       margin-top: 36px; line-height: 1.45;
     }
- 
+
     /* PARCOURS DE MARIE (accordéon bas de plaquette) */
     .marie-section { max-width: 660px; margin: 0 auto; padding: 40px 24px 20px; }
     .marie-toggle {
@@ -318,7 +294,7 @@ Plaquette · HTML
     }
     .marie-chevron { color: var(--sauge-pale); transition: transform 0.3s; flex-shrink: 0; }
     .marie-toggle.open .marie-chevron { transform: rotate(180deg); }
- 
+
     .marie-panel {
       display: none;
       background: var(--blanc); border-radius: 10px;
@@ -328,7 +304,7 @@ Plaquette · HTML
     }
     .marie-panel.open { display: block; }
     @keyframes marieFadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
- 
+
     .marie-header { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid rgba(108,140,125,0.15); }
     .marie-avatar {
       width: 82px; height: 82px; border-radius: 50%; overflow: hidden;
@@ -345,14 +321,14 @@ Plaquette · HTML
       font-size: 15px; color: var(--vert); line-height: 1.45;
     }
     .marie-accroche + .marie-accroche { color: var(--text-light); font-size: 13px; }
- 
+
     .marie-parcours { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
     .marie-parcours-item { display: flex; gap: 12px; align-items: flex-start; }
     .marie-parcours-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sauge); margin-top: 7px; flex-shrink: 0; }
     .marie-parcours-item.active .marie-parcours-dot { background: var(--corail); box-shadow: 0 0 0 3px rgba(242,107,118,0.2); }
     .marie-parcours-text { font-size: 13px; font-weight: 600; color: var(--vert); line-height: 1.4; }
     .marie-parcours-sub { display: block; font-size: 11.5px; font-weight: 400; color: var(--sauge); font-style: italic; margin-top: 1px; }
- 
+
     .marie-formation {
       background: var(--fond); border-radius: 8px; padding: 14px 16px; margin-bottom: 22px;
     }
@@ -361,7 +337,7 @@ Plaquette · HTML
       color: var(--sauge); margin-bottom: 8px;
     }
     .marie-formation-item { font-size: 12.5px; color: var(--vert-mid); line-height: 1.55; }
- 
+
     .marie-vision { display: flex; flex-direction: column; gap: 16px; margin-bottom: 22px; }
     .marie-vision-block { padding-left: 14px; border-left: 2px solid var(--sauge-pale); }
     .marie-vision-label {
@@ -370,7 +346,7 @@ Plaquette · HTML
     }
     .marie-vision-text { font-size: 13px; color: var(--text-light); line-height: 1.68; }
     .marie-vision-text strong { color: var(--vert); font-weight: 600; }
- 
+
     .marie-citation {
       background: var(--vert); border-radius: 8px; padding: 18px 20px;
       text-align: center;
@@ -383,7 +359,7 @@ Plaquette · HTML
       font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--sauge-pale);
     }
- 
+
     /* CONTACT */
     .contact-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
     .contact-item {
@@ -398,7 +374,7 @@ Plaquette · HTML
       background: var(--blanc); border-radius: 8px; padding: 14px;
       text-align: center; font-size: 10px; color: var(--sauge); line-height: 1.8; opacity: 0.75;
     }
- 
+
     /* RESPONSIVE */
     @media (max-width: 480px) {
       .retirer-grid { grid-template-columns: 1fr; }
@@ -411,7 +387,7 @@ Plaquette · HTML
   </style>
 </head>
 <body>
- 
+
   <nav class="nav">
     <span class="nav-brand">MBC</span>
     <div class="nav-links">
@@ -423,12 +399,12 @@ Plaquette · HTML
       <a href="#contact">Contact</a>
     </div>
   </nav>
- 
+
   <a href="https://calendar.app.google/aZwqmFeAAdprGaAh7" target="_blank" class="cta-float" aria-label="Réserver un diagnostic offert">
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
     Diagnostic offert
   </a>
- 
+
   <!-- HERO -->
   <div class="hero">
     <div class="hero-inner">
@@ -437,12 +413,12 @@ Plaquette · HTML
       <p class="hero-sub">« La plupart des dirigeants ne manquent ni de talent, ni d'ambition.<br>Ils manquent de structure, de clarté et de temps pour piloter. »</p>
     </div>
   </div>
- 
+
   <!-- LE CABINET -->
   <div class="sep"><div class="section" id="cabinet">
     <span class="eyebrow">Le Cabinet</span>
     <h2 class="h2">Vous êtes dirigeant.<br><em>Mais votre entreprise tourne encore autour de vous.</em></h2>
- 
+
     <div class="accroche-card">
       <span class="accroche-line">Vous êtes dirigeant.</span>
       <span class="accroche-line">Mais vos journées s'enchaînent en <strong>mode urgence.</strong></span>
@@ -450,18 +426,18 @@ Plaquette · HTML
       <span class="accroche-line">Vos équipes attendent vos consignes.</span>
       <span class="accroche-line">Et vous finissez vos semaines épuisé — sans avoir eu le temps de prendre du recul sur votre entreprise, <strong>juste de la faire tourner.</strong></span>
     </div>
- 
+
     <p class="p">J'ai passé 14 ans dans les entreprises à observer ce qui les fait avancer — ou tourner en rond. Un constat s'est imposé : les dirigeants de TPE portent tout, décident de tout, et finissent épuisés par ce qu'ils devraient simplement diriger.</p>
     <p class="p">J'ai créé <strong>MARIE BRETHES CONSEIL</strong> pour leur apporter un accompagnement terrain, structuré et pragmatique — qui les remet à leur juste place.</p>
     <p class="p">Un dysfonctionnement organisationnel a toujours un coût : temps perdu, décisions retardées, opportunités manquées. Mon accompagnement transforme ces pertes invisibles en leviers de performance durable.</p>
     <p class="p">Ma spécialité : votre entreprise doit pouvoir compter sur vous, sans dépendre de vous.</p>
     <p class="p"><em>Pas de conseil théorique. Pas de méthode plaquée.<br>Une approche terrain, co-construite avec vous, ajustée à votre réalité.</em></p>
- 
+
     <div class="conviction">
       <p>« Diriger, ce n'est pas tout faire.<br>C'est créer les conditions pour que ça fonctionne,<br><strong>même quand vous n'êtes pas là.</strong> »</p>
     </div>
   </div></div>
- 
+
   <!-- CE QUE VOUS ALLEZ EN RETIRER -->
   <div class="sep"><div class="section" id="retirer">
     <span class="eyebrow">Ce que vous allez en retirer</span>
@@ -497,7 +473,7 @@ Plaquette · HTML
       </div>
     </div>
   </div></div>
- 
+
   <!-- VOTRE PARCOURS -->
   <div class="sep"><div class="section" id="parcours">
     <span class="eyebrow">Votre Parcours</span>
@@ -541,13 +517,13 @@ Plaquette · HTML
     </div>
     <p class="parcours-note">Chaque offre est autonome. Combinées, elles forment un parcours complet de transformation organisationnelle.<br>Une phase de cadrage MBC (350 € HT, déduite si validation sous 30 jours) peut être proposée en porte d'entrée des offres 02 et 03.</p>
   </div></div>
- 
+
   <!-- MES OFFRES -->
   <div class="sep"><div class="section" id="offres">
     <span class="eyebrow">Mes Offres</span>
     <h2 class="h2">Un accompagnement <em>sur mesure</em></h2>
     <div class="offres-grid">
- 
+
       <div class="offre">
         <div class="offre-header" onclick="toggleOffre(this)">
           <div class="offre-header-left">
@@ -569,7 +545,7 @@ Plaquette · HTML
           <div class="offre-pourqui"><strong>Pour qui :</strong> Dirigeants qui sentent que leur organisation freine, sans savoir où agir en priorité.</div>
         </div>
       </div>
- 
+
       <div class="offre">
         <div class="offre-header" onclick="toggleOffre(this)">
           <div class="offre-header-left">
@@ -591,7 +567,7 @@ Plaquette · HTML
           <div class="offre-pourqui"><strong>Pour qui :</strong> Dirigeants qui veulent une vision exhaustive avant de structurer ou de grandir.</div>
         </div>
       </div>
- 
+
       <div class="offre">
         <div class="offre-header" onclick="toggleOffre(this)">
           <div class="offre-header-left">
@@ -614,7 +590,7 @@ Plaquette · HTML
           <div class="offre-pourqui"><strong>Pour qui :</strong> Dirigeants disposant d'un plan d'action structuré, prêts à le mettre en œuvre.</div>
         </div>
       </div>
- 
+
       <div class="offre cap">
         <div class="offre-header" onclick="toggleOffre(this)">
           <div class="offre-header-left">
@@ -637,10 +613,10 @@ Plaquette · HTML
           <div class="offre-pourqui"><strong>Conditions d'accès :</strong> Accompagnement Structuration MBC réalisé, ou Cadrage Maturité (750 € HT).</div>
         </div>
       </div>
- 
+
     </div>
   </div></div>
- 
+
   <!-- PARLONS-EN -->
   <div class="parlons-wrap" id="parlons">
     <div class="parlons-inner">
@@ -664,7 +640,7 @@ Plaquette · HTML
       <p class="tagline-fin">« Ensemble, remettons votre entreprise à sa juste place.<br>Et vous, à la vôtre. »</p>
     </div>
   </div>
- 
+
   <!-- LE PARCOURS DE MARIE (accordéon dépliable) -->
   <div class="marie-section">
     <button class="marie-toggle" onclick="toggleMarie()" aria-expanded="false" aria-controls="marie-panel">
@@ -677,9 +653,9 @@ Plaquette · HTML
       </div>
       <svg class="marie-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
- 
+
     <div class="marie-panel" id="marie-panel">
- 
+
       <div class="marie-header">
         <div class="marie-avatar">
           <img src="./marie-avatar.jpg" alt="Marie Brethes" loading="lazy" />
@@ -690,7 +666,7 @@ Plaquette · HTML
           <span class="marie-accroche">Mon fonctionnement : observer, structurer, optimiser, transmettre.</span>
         </div>
       </div>
- 
+
       <div class="marie-parcours">
         <div class="marie-parcours-item">
           <div class="marie-parcours-dot"></div>
@@ -728,13 +704,13 @@ Plaquette · HTML
           </div>
         </div>
       </div>
- 
+
       <div class="marie-formation">
         <div class="marie-formation-label">Formation</div>
         <div class="marie-formation-item">Licence Management Logistique &amp; Transport</div>
         <div class="marie-formation-item">Master Ingénierie Commerciale &amp; Management de Projets</div>
       </div>
- 
+
       <div class="marie-vision">
         <div class="marie-vision-block">
           <div class="marie-vision-label">Origine</div>
@@ -749,15 +725,15 @@ Plaquette · HTML
           <p class="marie-vision-text">Ce que j'apporte : mon œil terrain, ma capacité à structurer dans le chaos, et une approche directe qui va à l'essentiel. Pas de rapport de 80 pages. Des diagnostics clairs, des plans d'action concrets, et un accompagnement qui reste ancré dans votre réalité — pas dans la théorie.</p>
         </div>
       </div>
- 
+
       <div class="marie-citation">
         <p class="marie-citation-text">« Terrain. Structure. Résultats. C'est comme ça que je travaille — et c'est pour ça que j'ai créé MBC. »</p>
         <p class="marie-citation-source">— Marie Brethes</p>
       </div>
- 
+
     </div>
   </div>
- 
+
   <!-- CONTACT -->
   <div class="sep"><div class="section" id="contact">
     <span class="eyebrow">Contact</span>
@@ -784,7 +760,7 @@ Plaquette · HTML
       TVA non applicable, art. 293 B du CGI
     </div>
   </div></div>
- 
+
   <script>
     function toggleOffre(header) {
       const body = header.nextElementSibling;
@@ -813,4 +789,3 @@ Plaquette · HTML
   </script>
 </body>
 </html>
- 

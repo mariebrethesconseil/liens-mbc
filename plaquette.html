@@ -406,6 +406,108 @@
       text-align: center; font-size: 10px; color: var(--sauge); line-height: 1.8; opacity: 0.75;
     }
 
+    /* CABINET — nouveaux styles blocs titres */
+    .h3-cabinet {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700; font-size: 13px; letter-spacing: 0.04em;
+      color: var(--vert); margin: 22px 0 10px 0;
+    }
+    .cabinet-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+    .cabinet-list li { display: flex; gap: 9px; font-size: 14px; color: var(--text-light); line-height: 1.6; }
+    .cabinet-list li::before { content: '→'; color: var(--corail); font-weight: 700; flex-shrink: 0; }
+
+    /* CAP INITIAL — porte d'entrée dans Parcours */
+    .cap-initial-wrap { margin-bottom: 24px; text-align: center; }
+    .cap-initial-badge {
+      display: inline-block; background: var(--corail); color: #fff;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 4px; margin-bottom: 10px;
+    }
+    .cap-initial-card {
+      background: var(--vert); color: var(--fond);
+      border: 3px solid var(--corail); border-radius: 12px;
+      padding: 20px 22px;
+    }
+    .cap-initial-name {
+      font-weight: 700; font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--fond); margin-bottom: 10px;
+    }
+    .cap-initial-desc {
+      font-size: 13.5px; color: var(--sauge-pale); line-height: 1.6;
+    }
+    .parcours-arrow {
+      text-align: center; color: var(--sauge); font-size: 24px; margin: 10px 0 20px;
+    }
+
+    /* OFFRE Garder le Cap — style sauge */
+    .offre.garder-cap { border: 2px solid var(--sauge-pale); }
+    .offre.garder-cap .offre-title { color: var(--sauge); }
+    .offre.garder-cap .offre-num { color: var(--sauge); }
+
+    /* Tag "Demander le tarif" dans parcours */
+    .tag.demander {
+      background: var(--corail); color: #fff;
+      cursor: pointer;
+    }
+    .tag.demander a { color: #fff; text-decoration: none; }
+    
+    /* Badge PORTE D'ENTRÉE à l'intérieur de la carte CAP INITIAL */
+    .cap-initial-inline-badge {
+      display: inline-block; background: var(--corail); color: #fff;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      padding: 4px 11px; border-radius: 3px; margin-bottom: 10px;
+    }
+
+    /* CAP INITIAL — fond vert foncé quand fermé, clair quand ouvert */
+    .offre.cap-initial { border: 2px solid var(--corail); }
+    .offre.cap-initial .offre-header { background: var(--vert); transition: background 0.25s; }
+    .offre.cap-initial .offre-header .offre-title { color: var(--fond); }
+    .offre.cap-initial .offre-header .offre-tagline { color: var(--sauge-pale); }
+    .offre.cap-initial .offre-header .offre-num { color: var(--corail); }
+    .offre.cap-initial .offre-header .offre-chevron { color: var(--sauge-pale); }
+    .offre.cap-initial .offre-header .offre-price { background: var(--corail); color: #fff; border-color: var(--corail); }
+    /* Quand déplié — le bandeau du haut passe en clair */
+    .offre.cap-initial .offre-header.open { background: var(--fond); }
+    .offre.cap-initial .offre-header.open .offre-title { color: var(--vert); }
+    .offre.cap-initial .offre-header.open .offre-tagline { color: var(--sauge); }
+    .offre.cap-initial .offre-header.open .offre-chevron { color: var(--sauge); transform: rotate(180deg); }
+    .offre.cap-initial .offre-header.open .offre-num { color: var(--corail); }
+
+        /* Bulle tarif dans l'accordéon CAP INITIAL (reste visible) */
+    .offre-price.cap-initial-price {
+      background: var(--corail); color: #fff; border-color: var(--corail);
+    }
+    .offre-header.open .offre-price.cap-initial-price {
+      background: var(--corail); color: #fff; border-color: var(--corail);
+    }
+
+        /* Bouton Demander le tarif dans accordéon offres */
+    .tarif-cta {
+      display: inline-block; background: var(--corail); color: #fff;
+      font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 11px 20px; border-radius: 4px; text-decoration: none;
+      margin-top: 16px; transition: background 0.2s, transform 0.15s;
+    }
+    .tarif-cta:hover { background: #e55a66; transform: translateY(-1px); }
+
+    /* Bloc mailto fin de page */
+    .mailto-block {
+      background: var(--fond); border-radius: 10px;
+      padding: 22px 20px; margin-top: 24px; text-align: center;
+      border-left: 3px solid var(--corail);
+    }
+    .mailto-block-title {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 17px; color: var(--vert); margin-bottom: 14px;
+    }
+    .mailto-cta {
+      display: inline-block; background: var(--vert); color: var(--fond);
+      font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 12px 22px; border-radius: 4px; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .mailto-cta:hover { background: var(--vert-mid); }
+
     /* RESPONSIVE */
     @media (max-width: 480px) {
       .retirer-grid { grid-template-columns: 1fr; }
@@ -458,14 +560,30 @@
       <span class="accroche-line">Et vous finissez vos semaines épuisé — sans avoir eu le temps de prendre du recul sur votre entreprise, <strong>juste de la faire tourner.</strong></span>
     </div>
 
-    <p class="p">J'ai passé 14 ans dans les entreprises à observer ce qui les fait avancer — ou tourner en rond. Un constat s'est imposé : les dirigeants de TPE portent tout, décident de tout, et finissent épuisés par ce qu'ils devraient simplement diriger.</p>
-    <p class="p">J'ai créé <strong>MARIE BRETHES CONSEIL</strong> pour leur apporter un accompagnement terrain, structuré et pragmatique — qui les remet à leur juste place.</p>
-    <p class="p">Un dysfonctionnement organisationnel a toujours un coût : temps perdu, décisions retardées, opportunités manquées. Mon accompagnement transforme ces pertes invisibles en leviers de performance durable.</p>
-    <p class="p">Ma spécialité : votre entreprise doit pouvoir compter sur vous, sans dépendre de vous.</p>
-    <p class="p"><em>Pas de conseil théorique. Pas de méthode plaquée.<br>Une approche terrain, co-construite avec vous, ajustée à votre réalité.</em></p>
+    <p class="p" style="margin-top:24px;">14 ans dans les entreprises, un constat qui ne m'a jamais lâchée.</p>
 
     <div class="conviction">
-      <p>« Diriger, ce n'est pas tout faire.<br>C'est créer les conditions pour que ça fonctionne,<br><strong>même quand vous n'êtes pas là.</strong> »</p>
+      <p>« Les dirigeants de TPE, de PME et les indépendants portent tout, décident de tout.<br><strong>Résultat : ils ne dirigent plus, ils subissent.</strong> »</p>
+    </div>
+
+    <p class="p" style="margin-top:24px;">J'ai créé <strong>MARIE BRETHES CONSEIL</strong>, cabinet de conseil en organisation et performance opérationnelle, pour leur rendre cette place : celle du dirigeant qui pilote, pas de l'opérationnel qui exécute.</p>
+
+    <h3 class="h3-cabinet">Comment je travaille</h3>
+    <ul class="cabinet-list">
+      <li>J'analyse à vos côtés ce qui freine réellement votre entreprise</li>
+      <li>J'identifie avec vous les priorités d'action</li>
+      <li>Je vous accompagne dans leur mise en œuvre, en mobilisant si nécessaire les bons partenaires de l'écosystème MBC</li>
+    </ul>
+
+    <h3 class="h3-cabinet">Ma spécialité</h3>
+    <p class="p">Transformer les dysfonctionnements invisibles — temps perdu, décisions retardées, opportunités manquées — en leviers de performance durable.</p>
+
+    <h3 class="h3-cabinet">Ce que vous ne trouverez pas chez moi</h3>
+    <p class="p">Pas de conseil théorique. Pas de méthode plaquée. Pas de livrable standardisé.</p>
+    <p class="p"><strong>Mais un accompagnement 100 % personnalisé.</strong></p>
+
+    <div class="conviction">
+      <p>« Votre entreprise doit pouvoir compter sur vous,<br><strong>sans dépendre de vous.</strong> »</p>
     </div>
   </div></div>
 
@@ -509,6 +627,18 @@
   <div class="sep"><div class="section" id="parcours">
     <span class="eyebrow">Votre Parcours</span>
     <h2 class="h2">La méthode MBC : <span class="methode-sub">Reprendre les commandes</span></h2>
+
+    <!-- CAP INITIAL — porte d'entrée obligatoire (badge DANS la carte) -->
+    <div class="cap-initial-wrap">
+      <div class="cap-initial-card">
+        <div class="cap-initial-inline-badge">Porte d'entrée</div>
+        <div class="cap-initial-name">CAP INITIAL</div>
+        <div class="cap-initial-desc">Observer avec vous, identifier les priorités d'action et le bon accompagnement pour vous.<br>Chaque étape 100 % personnalisée.</div>
+      </div>
+    </div>
+
+    <div class="parcours-arrow">↓</div>
+
     <div class="phases">
       <div class="phase"><div class="phase-title">Comprendre</div><div class="phase-sub">Identifier ce qui freine</div></div>
       <span class="phase-arrow">→</span>
@@ -520,60 +650,79 @@
       <div class="parcours-step">
         <div class="step-left"><div class="step-num">01</div><div class="step-line"></div></div>
         <div class="step-card">
-          <div class="step-name">Diagnostic Express</div>
-          <div class="step-tags"><span class="tag">3 semaines</span><span class="tag price">À partir de 1 500 € HT</span></div>
+          <div class="step-name">Diagnostic 360°</div>
+          <div class="step-tags"><span class="tag">À partir de 4 semaines</span><span class="tag demander"><a href="https://calendar.app.google/aZwqmFeAAdprGaAh7" target="_blank">Demander le tarif</a></span></div>
         </div>
       </div>
       <div class="parcours-step">
         <div class="step-left"><div class="step-num">02</div><div class="step-line"></div></div>
         <div class="step-card">
-          <div class="step-name">Audit Organisationnel</div>
-          <div class="step-tags"><span class="tag">4 à 8 semaines</span><span class="tag price">À partir de 3 500 € HT</span></div>
-        </div>
-      </div>
-      <div class="parcours-step">
-        <div class="step-left"><div class="step-num">03</div><div class="step-line"></div></div>
-        <div class="step-card">
           <div class="step-name">Accompagnement Structuration</div>
-          <div class="step-tags"><span class="tag">À partir de 3 mois</span><span class="tag price">À partir de 4 500 € HT</span></div>
+          <div class="step-tags"><span class="tag">À partir de 3 mois</span><span class="tag demander"><a href="https://calendar.app.google/aZwqmFeAAdprGaAh7" target="_blank">Demander le tarif</a></span></div>
         </div>
       </div>
       <div class="parcours-step">
-        <div class="step-left"><div class="step-num" style="background:var(--corail);">04</div><div class="step-line"></div></div>
+        <div class="step-left"><div class="step-num" style="background:var(--corail);">03</div><div class="step-line"></div></div>
         <div class="step-card" style="border-left-color:var(--corail);">
-          <div class="step-name" style="color:var(--corail);">Cap MBC</div>
-          <div class="step-tags"><span class="tag">Abonnement mensuel</span><span class="tag price" style="background:var(--corail);">750 € HT / mois</span></div>
+          <div class="step-name" style="color:var(--corail);">Garder le Cap</div>
+          <div class="step-tags"><span class="tag">Abonnement mensuel</span><span class="tag demander"><a href="https://calendar.app.google/aZwqmFeAAdprGaAh7" target="_blank">Demander le tarif</a></span></div>
         </div>
       </div>
     </div>
-    <p class="parcours-note">Chaque offre est autonome. Combinées, elles forment un parcours complet de transformation organisationnelle.<br>Une phase de cadrage MBC (350 € HT, déduite si validation sous 30 jours) peut être proposée en porte d'entrée des offres 02 et 03.</p>
+    <p class="parcours-note">CAP INITIAL est la porte d'entrée obligatoire vers chacun des accompagnements MBC.<br>Combinées, elles forment un parcours complet de transformation organisationnelle.<br>Chaque étape est autonome.<br><br><strong>Le montant du CAP INITIAL est intégralement déduit en cas de validation d'un Diagnostic 360° ou d'un Accompagnement Structuration dans les 30 jours suivant la fin du CAP INITIAL.</strong></p>
   </div></div>
 
   <!-- MES OFFRES -->
   <div class="sep"><div class="section" id="offres">
     <span class="eyebrow">Mes Offres</span>
-    <h2 class="h2">Un accompagnement <em>sur mesure</em></h2>
+    <h2 class="h2">Un accompagnement <em>100 % sur mesure</em></h2>
+    <p class="p" style="margin-bottom:22px;">Chaque offre est co-construite avec vous. Pas de méthode plaquée, pas de livrable standardisé. Votre accompagnement s'ajuste à votre réalité, à votre équipe et à vos priorités, que vous soyez à la tête d'une TPE, d'une PME ou en tant qu'indépendant.</p>
     <div class="offres-grid">
 
-      <div class="offre">
+      <div class="offre cap-initial">
         <div class="offre-header" onclick="toggleOffre(this)">
           <div class="offre-header-left">
-            <div class="offre-num">01</div>
-            <div class="offre-title">Diagnostic Express</div>
-            <div class="offre-tagline">Comprendre pourquoi tout repose encore sur vous.</div>
+            <div class="offre-num">Porte d'entrée obligatoire</div>
+            <div class="offre-title">CAP INITIAL</div>
+            <div class="offre-tagline">Observer, identifier les priorités, orienter vers la bonne suite.</div>
           </div>
           <div class="offre-right">
-            <div class="offre-price">À partir de 1 500 € HT</div>
+            <div class="offre-price cap-initial-price">490 € HT</div>
             <svg class="offre-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
         </div>
         <div class="offre-body">
           <ul class="offre-list">
-            <li>Le Baromètre d'autonomie MBC : où et pourquoi votre entreprise dépend encore de vous</li>
-            <li>Cartographie précise des blocages organisationnels</li>
-            <li>Plan d'action priorisé sur 90 jours</li>
+            <li>Un Baromètre d'Autonomie partagé en amont pour nourrir l'analyse</li>
+            <li>Un entretien terrain avec vous, complété d'entretiens courts avec vos salariés clés (si applicable)</li>
+            <li>Une Grille des Leviers par pôle organisationnel pour visualiser les zones d'impact</li>
+            <li>Un Estimateur ROI MBC pour mesurer les coûts invisibles</li>
+            <li>Une restitution orale claire — 3 priorités d'action et l'offre MBC qui vous correspond</li>
           </ul>
-          <div class="offre-pourqui"><strong>Pour qui :</strong> Dirigeants qui sentent que leur organisation freine, sans savoir où agir en priorité.</div>
+          <div class="offre-pourqui"><strong>Pour qui :</strong> Dirigeants de TPE, PME et indépendants qui ont besoin de prendre un temps court pour poser les vraies priorités et choisir le bon accompagnement.</div>
+        </div>
+      </div>
+
+      <div class="offre">
+        <div class="offre-header" onclick="toggleOffre(this)">
+          <div class="offre-header-left">
+            <div class="offre-num">01</div>
+            <div class="offre-title">Diagnostic 360°</div>
+            <div class="offre-tagline">Cartographier votre organisation, chiffrer ce qui vous coûte, prioriser ce qui va vous libérer.</div>
+          </div>
+          <div class="offre-right">
+            <svg class="offre-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="offre-body">
+          <ul class="offre-list">
+            <li>Analyse approfondie des zones de perte sur les pôles organisationnels majeurs</li>
+            <li>Indicateurs de mesure structurés — chiffrage concret des coûts cachés et des opportunités</li>
+            <li>Plan de transformation priorisé par arbitrage dirigeant (urgence, coût, impact)</li>
+            <li>Planification opérationnelle des premières priorités</li>
+          </ul>
+          <div class="offre-pourqui"><strong>Pour qui :</strong> Dirigeants qui veulent une vision complète et chiffrée avant de structurer, grandir ou décider de leurs investissements.</div>
+          <a href="https://calendar.app.google/aZwqmFeAAdprGaAh7" target="_blank" class="tarif-cta">Demander le tarif</a>
         </div>
       </div>
 
@@ -581,71 +730,52 @@
         <div class="offre-header" onclick="toggleOffre(this)">
           <div class="offre-header-left">
             <div class="offre-num">02</div>
-            <div class="offre-title">Audit Organisationnel</div>
-            <div class="offre-tagline">Identifier précisément où votre entreprise perd du temps et de l'argent.</div>
-          </div>
-          <div class="offre-right">
-            <div class="offre-price">À partir de 3 500 € HT</div>
-            <svg class="offre-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-        </div>
-        <div class="offre-body">
-          <ul class="offre-list">
-            <li>Analyse approfondie des zones de perte sur 6 à 10 pôles organisationnels</li>
-            <li>Indicateurs de mesure structurés par pôle</li>
-            <li>Plan de transformation priorisé, avec impact attendu et effort estimé</li>
-          </ul>
-          <div class="offre-pourqui"><strong>Pour qui :</strong> Dirigeants qui veulent une vision exhaustive avant de structurer ou de grandir.</div>
-        </div>
-      </div>
-
-      <div class="offre">
-        <div class="offre-header" onclick="toggleOffre(this)">
-          <div class="offre-header-left">
-            <div class="offre-num">03</div>
             <div class="offre-title">Accompagnement Structuration</div>
             <div class="offre-tagline">Construire une organisation qui fonctionne sans vous au quotidien.</div>
           </div>
           <div class="offre-right">
-            <div class="offre-price">À partir de 4 500 € HT</div>
             <svg class="offre-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
         </div>
         <div class="offre-body">
           <ul class="offre-list">
-            <li>Déploiement opérationnel co-construit — 2 séances de 3h/mois sur site</li>
+            <li>Déploiement opérationnel co-construit sur les priorités arbitrées</li>
             <li>Structuration des rôles, des processus et des outils internes</li>
-            <li>Activation du réseau partenaires si besoin (comptable, RH, digital, juridique…)</li>
+            <li>Accompagnement ajusté à votre niveau d'autonomie — du suivi léger à l'intervention terrain intensive</li>
+            <li>Activation du réseau partenaires MBC si besoin (comptable, RH, digital, juridique)</li>
             <li>Mesure d'impact en fin d'intervention</li>
           </ul>
-          <div class="offre-pourqui"><strong>Pour qui :</strong> Dirigeants disposant d'un plan d'action structuré, prêts à le mettre en œuvre.</div>
+          <div class="offre-pourqui"><strong>Pour qui :</strong> Dirigeants disposant d'un plan d'action clair, prêts à mettre en œuvre un changement structurel durable avec un accompagnement ajusté à leur niveau d'autonomie.</div>
+          <a href="https://calendar.app.google/aZwqmFeAAdprGaAh7" target="_blank" class="tarif-cta">Demander le tarif</a>
         </div>
       </div>
 
       <div class="offre cap">
         <div class="offre-header" onclick="toggleOffre(this)">
           <div class="offre-header-left">
-            <div class="offre-num">04</div>
-            <div class="offre-title">Cap MBC</div>
+            <div class="offre-num">03</div>
+            <div class="offre-title">Garder le Cap</div>
             <div class="offre-tagline">Rester à votre juste place de dirigeant, dans la durée.</div>
           </div>
           <div class="offre-right">
-            <div class="offre-price">750 € HT / mois</div>
+            <div class="offre-price" style="background:var(--corail);color:#fff;border-color:var(--corail);">Abonnement mensuel</div>
             <svg class="offre-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
         </div>
         <div class="offre-body">
           <ul class="offre-list">
-            <li>Regard extérieur structurant chaque mois — 1 demi-journée terrain + 1 visio d'1h</li>
+            <li>Regard extérieur structurant chaque mois — 1 demi-journée terrain et 1 visio d'1h</li>
             <li>Réactivité sous 72h sur les sujets urgents</li>
             <li>Activation du réseau partenaires selon les besoins identifiés</li>
             <li>Rapport trimestriel d'impact</li>
           </ul>
-          <div class="offre-pourqui"><strong>Conditions d'accès :</strong> Accompagnement Structuration MBC réalisé, ou Cadrage Maturité (750 € HT).</div>
+          <div class="offre-pourqui"><strong>Pour qui :</strong> Dirigeants ayant réalisé un CAP INITIAL ou un Accompagnement Structuration MBC, qui veulent un regard extérieur régulier pour ajuster leur organisation mois après mois.</div>
+          <a href="https://calendar.app.google/aZwqmFeAAdprGaAh7" target="_blank" class="tarif-cta">Demander le tarif</a>
         </div>
       </div>
 
     </div>
+    <p class="parcours-note" style="margin-top:22px;">Toutes les offres MBC sont adaptées à votre structure : TPE, PME ou indépendant.<br>Le périmètre et le format s'ajustent lors du CAP INITIAL.<br><br><strong>Le montant du CAP INITIAL est intégralement déduit en cas de validation d'un Diagnostic 360° ou d'un Accompagnement Structuration dans les 30 jours suivant la fin du CAP INITIAL.</strong></p>
   </div></div>
 
   <!-- PARLONS-EN -->
@@ -656,7 +786,7 @@
       <div class="situations">
         <div class="situation">Vous êtes le seul à avoir la vision d'ensemble, et ça vous épuise.</div>
         <div class="situation">Vos équipes sont compétentes, mais l'organisation ne suit pas.</div>
-        <div class="situation">Vous savez qu'il faut structurer, mais vous n'avez pas le temps de le faire.</div>
+        <div class="situation">Vous savez qu'il faut structurer, mais vous ne savez pas par où commencer.</div>
       </div>
       <div class="rdv-box">
         <div class="rdv-title">30 minutes pour reprendre les commandes.</div>
@@ -788,7 +918,8 @@
       <strong>MARIE BRETHES CONSEIL</strong><br>
       SAS à associé unique au capital de 1 000 €<br>
       SIREN 105 147 771 — RCS Mont-de-Marsan 2026B00331 — EUID FR4002.105147771<br>
-      TVA non applicable, art. 293 B du CGI
+      TVA non applicable, art. 293 B du CGI<br>
+      RC Pro MMA — Police n° A150759087
     </div>
   </div></div>
 

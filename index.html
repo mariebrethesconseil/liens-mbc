@@ -1,36 +1,151 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Marie Brethes Conseil — Stratégie & Performance Durable</title>
-  <meta http-equiv="refresh" content="0; url=./plaquette.html">
-  <link rel="canonical" href="https://liens.mariebrethesconseil.fr/plaquette.html">
-  <script>
-    window.location.replace("./plaquette.html");
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marie Brethes Conseil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --vert: #013927;
+      --sauge: #6c8c7d;
+      --sauge-pale: #b8ccc4;
+      --fond: #edf3ec;
+      --blanc: #ffffff;
+      --corail: #f26b76;
+      --text: #1a2e25;
+      --text-light: #4a6358;
+    }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #edf3ec;
-      color: #013927;
+      background: var(--fond);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      margin: 0;
+      padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap {
+      width: 100%;
+      max-width: 440px;
       text-align: center;
     }
-    .box { padding: 2rem; max-width: 480px; }
-    h1 { font-family: Georgia, serif; font-weight: 400; font-size: 1.4rem; margin-bottom: 1rem; }
-    a { color: #f26b76; font-weight: 600; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    .logo {
+      width: clamp(180px, 42vw, 240px);
+      height: auto;
+      margin-bottom: 26px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--text-light);
+      margin-bottom: 44px;
+      line-height: 1.4;
+    }
+    .cta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .cta {
+      display: block;
+      background: var(--blanc);
+      border: 1.5px solid rgba(108,140,125,0.25);
+      border-radius: 14px;
+      padding: 22px 48px 22px 24px;
+      text-decoration: none;
+      text-align: left;
+      transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .cta:hover {
+      transform: translateY(-2px);
+      border-color: var(--corail);
+      box-shadow: 0 6px 20px rgba(1,57,39,0.08);
+    }
+    .cta-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--corail);
+      margin-bottom: 6px;
+    }
+    .cta-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--vert);
+      line-height: 1.25;
+    }
+    .cta-desc {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+    .cta-arrow {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--corail);
+      font-size: 22px;
+      font-weight: 300;
+    }
+    .cta-rdv {
+      background: var(--vert);
+      border-color: var(--vert);
+    }
+    .cta-rdv .cta-eyebrow { color: var(--sauge-pale); }
+    .cta-rdv .cta-label { color: var(--blanc); }
+    .cta-rdv .cta-desc { color: var(--sauge-pale); }
+    .cta-rdv .cta-arrow { color: var(--corail); }
+    .cta-rdv:hover { border-color: var(--corail); }
+    .footer {
+      margin-top: 40px;
+      font-size: 11px;
+      color: var(--text-light);
+      letter-spacing: 0.08em;
+    }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>Marie Brethes Conseil</h1>
-    <p>Redirection en cours vers la plaquette…</p>
-    <p>Si la page ne s'ouvre pas automatiquement, <a href="./plaquette.html">cliquez ici</a>.</p>
-  </div>
+  <main class="wrap">
+    <img src="https://raw.githubusercontent.com/mariebrethesconseil/liens-mbc/main/LOGO%20SOMBRE.png" alt="Marie Brethes Conseil" class="logo" />
+    <p class="subtitle">Là où l'organisation freine la performance</p>
+
+    <div class="cta-list">
+      <a class="cta" href="plaquette.html">
+        <div class="cta-eyebrow">À propos</div>
+        <div class="cta-label">Qui je suis &amp; ce que je fais</div>
+        <div class="cta-desc">Mon parcours, ma méthode, mes offres</div>
+        <span class="cta-arrow">→</span>
+      </a>
+
+      <a class="cta" href="https://forms.gle/BarfuWYMYBLfwEEs7">
+        <div class="cta-eyebrow">5 minutes</div>
+        <div class="cta-label">Diagnostic express de votre organisation</div>
+        <div class="cta-desc">Vous tenez, vous compensez ou vous saturez ?</div>
+        <span class="cta-arrow">→</span>
+      </a>
+
+      <a class="cta cta-rdv" href="https://calendar.app.google/Gq5dK39An3s4MEYu5">
+        <div class="cta-eyebrow">30 minutes offertes</div>
+        <div class="cta-label">Prendre rendez-vous</div>
+        <div class="cta-desc">Échangeons sur votre situation</div>
+        <span class="cta-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="footer">mariebrethesconseil.fr</div>
+  </main>
 </body>
 </html>

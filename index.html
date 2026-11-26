@@ -66,3 +66,85 @@
       position: relative;
     }
     .cta:hover {
+      transform: translateY(-2px);
+      background: var(--blanc);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+    }
+    .cta-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--corail);
+      margin-bottom: 6px;
+    }
+    .cta-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--vert);
+      line-height: 1.25;
+    }
+    .cta-desc {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+    .cta-arrow {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--corail);
+      font-size: 22px;
+      font-weight: 300;
+    }
+    .cta-rdv {
+      background: var(--corail);
+    }
+    .cta-rdv:hover { background: #f58790; }
+    .cta-rdv .cta-eyebrow { color: var(--vert); }
+    .cta-rdv .cta-label { color: var(--blanc); }
+    .cta-rdv .cta-desc { color: rgba(255,255,255,0.85); }
+    .cta-rdv .cta-arrow { color: var(--blanc); }
+    .footer {
+      margin-top: 40px;
+      font-size: 11px;
+      color: var(--sauge);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <img src="https://raw.githubusercontent.com/mariebrethesconseil/liens-mbc/main/LOGO%20SOMBRE.png" alt="Marie Brethes Conseil" class="logo" />
+    <p class="subtitle">Là où l'organisation freine la performance</p>
+
+    <div class="cta-list">
+      <a class="cta" href="plaquette.html">
+        <div class="cta-eyebrow">À propos</div>
+        <div class="cta-label">Qui je suis &amp; ce que je fais</div>
+        <div class="cta-desc">Mon parcours, ma méthode, mes offres</div>
+        <span class="cta-arrow">→</span>
+      </a>
+
+      <a class="cta" href="https://forms.gle/BarfuWYMYBLfwEEs7">
+        <div class="cta-eyebrow">5 minutes</div>
+        <div class="cta-label">Diagnostic express de votre organisation</div>
+        <div class="cta-desc">Vous tenez, vous compensez ou vous saturez ?</div>
+        <span class="cta-arrow">→</span>
+      </a>
+
+      <a class="cta cta-rdv" href="https://calendar.app.google/Gq5dK39An3s4MEYu5">
+        <div class="cta-eyebrow">30 minutes offertes</div>
+        <div class="cta-label">Prendre rendez-vous</div>
+        <div class="cta-desc">Échangeons sur votre situation</div>
+        <span class="cta-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="footer">mariebrethesconseil.fr</div>
+  </main>
+</body>
+</html>
